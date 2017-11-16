@@ -1,0 +1,57 @@
+{
+  "name": "test-webpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:dev:dashboard": "webpack-dashboard -- npm run start",
+    "build:dev:analysis": "NODE_ENV=development webpack --profile --env.analysis",
+    "debug:wp": "DEBUG=webpack:* nodemon server.js",
+    "debug": "nodemon --inspect --debug-brk server.js",
+    "inspector": "node-inspector --web-port=8888",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monolifeYw/test-webpack.git"
+  },
+  "author": "lyw31136 <lyw31136@naver.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/monolifeYw/test-webpack/issues"
+  },
+  "homepage": "https://github.com/monolifeYw/test-webpack#readme",
+  "dependencies": {
+    "JSON2": "0.1.0",
+    "app-module-path": "2.2.0",
+    "babel-core": "6.24.0",
+    "babel-loader": "6.4.1",
+    "babel-plugin-transform-es3-member-expression-literals": "6.22.0",
+    "babel-plugin-transform-es3-property-literals": "6.22.0",
+    "babel-polyfill": "6.23.0",
+    "babel-preset-es2015": "6.24.0",
+    "body-parser": "1.18.2",
+    "case-sensitive-paths-webpack-plugin": "2.1.1",
+    "debug": "2.6.3",
+    "es3ify-loader": "0.2.0",
+    "eslint": "3.19.0",
+    "eslint-loader": "1.7.1",
+    "expose-loader": "0.7.4",
+    "express": "4.15.2",
+    "express-handlebars": "3.0.0",
+    "glob": "7.1.2",
+    "handlebars": "4.0.6",
+    "handlebars-loader": "1.4.0",
+    "jquery": "1.12.4",
+    "jquery.cookie": "1.4.1",
+    "nodemon": "^1.12.1",
+    "rimraf": "2.6.1",
+    "vhost": "3.0.2",
+    "webpack": "2.3.3",
+    "webpack-bundle-analyzer": "2.9.0",
+    "webpack-dashboard": "1.0.0",
+    "webpack-dev-middleware": "^1.10.1",
+    "webpack-manifest-plugin": "1.1.0",
+    "yargs": "7.0.2"
+  }
+}
