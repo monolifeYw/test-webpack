@@ -14,7 +14,14 @@ const hbs = expressHbs.create({
   extname: 'hbs',
   layoutsDir: PATHS.LAYOUT_DIR,
   partialsDir: PATHS.PARTIAL_DIR,
-  helpers: PATHS.HELPER_DIR,
+
+  /**
+   * set helper
+   * @example
+   * - express-handlebars 는 { helper-name1: helper-value1, helper-name2: helper-value2 }
+   *   처럼 하나의 hashmap 안에 helper들을 열거하여야 한다.
+   */
+  helpers: require('server-conf/server-handlebars'),
 });
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
