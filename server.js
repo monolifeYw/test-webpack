@@ -1,3 +1,12 @@
+'use strict';
+
+/**
+ * @todo
+ * - Worker error Error: No code sections found
+ * -> https://github.com/FormidableLabs/webpack-dashboard/issues/189
+ */
+
+
 /**
  * module path 지정
  * Node.js 모듈 검색 경로에 최상위 수준 앱 모듈 전용 디렉토리를 추가
