@@ -14,7 +14,7 @@ const entryLoader = require('./lib/entryLoader');
 // entries - Resource
 const entryResourcePc = entryLoader(PATHS.ENTRIES_DIR, 'pc/**/*.js');
 const entryResourceMobile = entryLoader(PATHS.ENTRIES_DIR, 'm/**/*.js');
-const entryResource = Object.assign({}, entryResourcePc);
+const entryResource = Object.assign({}, entryResourcePc, entryResourceMobile);
 
 // final entry
 const entry = Object.assign({}, entryCommon, entryResource);

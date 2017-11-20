@@ -52,7 +52,7 @@ const excludeLists = {
 
 const baseConf = {
 
-  // Prod 환경에서 build 시 warning, error 시의 Build에 대한 hard Checking 강화
+  // build 시 warning, error 시의 Build에 대한 hard Checking 강화
   bail: false,
 
   // Webpack이 작동하는 의존성 트리의 루트 노드가 되는 진입점
