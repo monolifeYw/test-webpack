@@ -52,6 +52,16 @@ const excludeLists = {
 
 const baseConf = {
 
+  /**
+   * 모듈 해석
+   context 를 기준으로 entry poin 와 loaders 의 path를 절대적(absolute)으로, 해석(resolve) 한다.
+   - 보통 해당 모듈의 기본 폴더를 지정
+   //////////////////\n// WEBPACK FOOTER\n// ./entries/pc/example/example-test.js\n
+   //////////////////\// module id = 356\n// module chunks = 2\n\n//#
+   //////////////////\// sourceURL=webpack:///./entries/pc/example/example-test.js?");
+   */
+  context: ENV.PATHS.BASE_DIR,
+
   // build 시 warning, error 시의 Build에 대한 hard Checking 강화
   bail: false,
 
@@ -60,7 +70,6 @@ const baseConf = {
 
   // require(모듈명)에서의 모듈명을 어떻게 해석할지에 대한 옵션
   resolve: {
-
     alias: {
       // Project 공통 alias
       'baseDir': resolve(ENV.PATHS.BASE_DIR),

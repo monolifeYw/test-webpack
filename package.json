@@ -4,6 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "clean:all": "rimraf dist",
+    "compile": "webpack --progress --config ./build-conf/webpack.config.js",
+    "compile:dev": "npm run clean:all && NODE_ENV=development npm run compile",
+    "compile:prod": "npm run clean:all && NODE_ENV=production npm run compile",
     "build:dev:dashboard": "webpack-dashboard -- npm run start",
     "build:dev:analysis": "NODE_ENV=development webpack --profile --env.analysis",
     "debug:wp": "DEBUG=webpack:* nodemon server.js",

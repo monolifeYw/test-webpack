@@ -1,7 +1,7 @@
 'use strict';
 
 // env
-const { ENV, BUILD } = require('app-config');
+const { ENV, BUILD } = require('../app-config');
 
 // debug
 const debug = require('debug')('webpack:config');
@@ -10,7 +10,7 @@ const debug = require('debug')('webpack:config');
 const baseConf = require(BUILD.CONFIG_BASE);
 
 // config
-const webpackConfig = require(`build-conf/webpack.config.${ENV !== 'production' ? 'development' : ENV}`)();
+const webpackConfig = require(`./webpack.config.${ENV !== 'production' ? 'development' : ENV}`)();
 
 // analyzerPlugin
 if (BUILD.ANALYSIS_MODE) {

@@ -1,5 +1,5 @@
 // enviornments
-const { BUILD, HOSTS, SERVER } = require('app-config');
+const { BUILD, HOSTS, SERVER } = require('../app-config');
 
 // webpack
 // const webpack = require('webpack');
@@ -15,6 +15,7 @@ module.exports = () => {
 
     // entry에서 부터 구축한 의존성 트리를 바탕으로 만들어낸 번들이 어디에, 어떤 파일 이름으로 저장될지를 지정
     output: {
+      // 빌드 결과물이 들어갈 (webpack.config.js로부터의) 상대 경로, Compile 된 Path 기준
       path: BUILD.BUILD_PATH,
       filename: '[name]-bundle.js',
       chunkFilename: '[name]-[id].bundle.js',
@@ -54,6 +55,9 @@ module.exports = () => {
         chunks: true,
         chunkModules: false,
         modules: false,
+
+        // build 오류 상황을 상세히 표시
+        errorDetails: false,
       },
     },
   };

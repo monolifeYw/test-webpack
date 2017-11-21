@@ -1,8 +1,5 @@
 'use strict';
 
-const $ = require('jquery');
-const mobileUtils = require('js/common/utils/testMobileUtils');
+const initMain = require('js/pc/main');
 
-$(() => {
-  console.log('DOM READY PC');
-});
+initMain();

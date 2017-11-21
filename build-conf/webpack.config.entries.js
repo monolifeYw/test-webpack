@@ -1,11 +1,11 @@
 // env
-const { PATHS } = require('app-config');
+const { PATHS } = require('../app-config');
 
 // debug
 const debug = require('debug')('webpack:config:entries');
 
 // entries - Common (vendor)
-const entryCommon = require('src/entries/common/entries-common');
+const entryCommon = require('../src/entries/common/entries-common');
 
 // entryLoader
 // entry 폴더안에서 entry 구성 진행
