@@ -63,7 +63,7 @@ const baseConf = {
   context: ENV.PATHS.BASE_DIR,
 
   // build 시 warning, error 시의 Build에 대한 hard Checking 강화
-  bail: false,
+  bail: ENV.IS_PROD,
 
   // Webpack이 작동하는 의존성 트리의 루트 노드가 되는 진입점
   entry: entries,
@@ -80,6 +80,7 @@ const baseConf = {
     },
 
     // 모듈명 뒤에 여기 명시된 확장자명들을 붙여보며 탐색을 수행
+    // require('abc')를 resolve 하기 위해 abc, abc,js, abc.hbs 탐색
     extensions: ['.js', '.hbs'],
 
     // 모듈 탐색을 시작할 루트 경로
@@ -132,14 +133,21 @@ const baseConf = {
   ],
 
   // 의존성 트리 내의 각 모듈들을 어떻게 핸들링할지에 대한 옵션.
+  // 외부 스크립트와 도구를 통해 소스 파일을 전처리하고 다양한 변경과 변환을 적용
   module: {
     rules: [
-      // preload
       {
+        // test(required) : 이 로더로 처리하기 위해 일치해야 하는 파일 확장자를 비교하는 정규표현식
         test: /\.js$/,
+        // loaders 전에 실행되어야 하는 로더들을 선언하는 부분
+        // - pre : preloader
+        // - post : postloader
         enforce: 'pre',
+        // 특정 모듈을 어떤 로더들을 거쳐 불러올지에 대한 설정(로더는 각 모듈을 어떻게 불러올 것인가를 담당)
         loader: 'eslint-loader',
+        // loader 에 포함 시킬 resource
         include: [ENV.PATHS.SOURCE_DIR],
+        // loader 에 제외 시킬 resource
         exclude: /(node_modules|dist)/,
       },
 
@@ -209,6 +217,7 @@ const baseConf = {
       },
     }),
 
+    // LoaderOptionsPlugin : 로더들에게 옵션을 넣어주는 플러그인
     // Loader Options Plugin > eslint
     new webpack.LoaderOptionsPlugin({
       // minimize: true

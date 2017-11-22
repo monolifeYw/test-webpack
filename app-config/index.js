@@ -16,12 +16,14 @@ const { argv } = require('yargs')
   })
   .help();
 
+// 구동 환경 (default `development`)
+const ENV = process.env.NODE_ENV || 'development';
+
+// production 환경인지 체크
+const IS_PROD = ENV !== 'development';
 
 // Root
 const BASEPATH = process.cwd();
-
-// 구동 환경 (default `development`)
-const ENVIRONMENT = process.env.NODE_ENV || 'development';
 
 // webpack 로컬 테스트시 vm 사용 고려
 const HOSTS = {
@@ -80,5 +82,6 @@ module.exports = {
   SERVER,
   PATHS,
   BUILD,
-  ENV: ENVIRONMENT,
+  ENV,
+  IS_PROD,
 };

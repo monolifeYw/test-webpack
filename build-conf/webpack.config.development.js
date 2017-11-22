@@ -17,15 +17,21 @@ module.exports = () => {
     output: {
       // 빌드 결과물이 들어갈 (webpack.config.js로부터의) 상대 경로, Compile 된 Path 기준
       path: BUILD.BUILD_PATH,
+      // [name] entry에서의 key 값
       filename: '[name]-bundle.js',
       chunkFilename: '[name]-[id].bundle.js',
+      // Build 된 Path 기준
+      // 파일들이 위치할 서버 상의 경로
       publicPath: BUILD.PUBLIC_PATH,
       libraryTarget: 'umd',
+      library: 'DEMO',
     },
 
     // 번들링이 끝난 뒤 최종적으로 나온 번들을 조작하고 싶은 경우
     plugins: [],
 
+    // webpack-dev-server 에서 compile 되고 읽혀지는 파일은
+    // 실제 물리적 파일로 저장되는 것이 아니라 메모리상 에서 컴파일 되어 읽고 있다는 것
     devServer: {
 
       // host
